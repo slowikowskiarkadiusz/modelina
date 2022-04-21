@@ -73,26 +73,26 @@ export abstract class CSharpRenderer extends AbstractRenderer<CSharpOptions> {
     switch (type) {
     case 'integer':
     case 'int32':
-      return `int${isRequired ? '?' : ''}`;
+      return `int${isRequired ? '' : '?'}`;
     case 'long':
     case 'int64':
-      return `long${isRequired ? '?' : ''}`;
+      return `long${isRequired ? '' : '?'}`;
     case 'boolean':
-      return `bool${isRequired ? '?' : ''}`;
+      return `bool${isRequired ? '' : '?'}`;
     case 'date':
     case 'time':
     case 'dateTime':
     case 'date-time':
-      return `System.DateTime${isRequired ? '?' : ''}`;
+      return `System.DateTime${isRequired ? '' : '?'}`;
     case 'string':
     case 'password':
     case 'byte':
       return 'string';
     case 'float':
-      return `float${isRequired ? '?' : ''}`;
+      return `float${isRequired ? '' : '?'}`;
     case 'double':
     case 'number':
-      return `double${isRequired ? '?' : ''}`;
+      return `double${isRequired ? '' : '?'}`;
     case 'binary':
       return 'byte[]';
     case 'object':
