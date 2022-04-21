@@ -106,7 +106,7 @@ export const CSHARP_DEFAULT_CLASS_PRESET: CsharpClassPreset = {
   },
   async property({ renderer, propertyName, options, property, type }) {
     propertyName = renderer.nameProperty(propertyName, property);
-    let propertyType = renderer.renderType(property);
+    let propertyType = renderer.renderType(property, propertyName);
     if (type === PropertyType.additionalProperty || type === PropertyType.patternProperties) {
       propertyType = `Dictionary<string, ${propertyType}>`;
     }
@@ -119,7 +119,7 @@ export const CSHARP_DEFAULT_CLASS_PRESET: CsharpClassPreset = {
   },
   async accessor({ renderer, propertyName, options, property, type }) {
     const formattedAccessorName = pascalCase(renderer.nameProperty(propertyName, property));
-    let propertyType = renderer.renderType(property);
+    let propertyType = renderer.renderType(property, propertyName);
     if (type === PropertyType.additionalProperty || type === PropertyType.patternProperties) {
       propertyType = `Dictionary<string, ${propertyType}>`;
     }
