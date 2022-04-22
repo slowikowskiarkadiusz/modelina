@@ -1,8 +1,7 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`CSharpGenerator class renderer should be able to overwrite accessor preset hook 1`] = `
-"public class CustomClass
-{
+"public class CustomClass {
   private string property;
   private Dictionary<string, string> additionalProperties;
 
@@ -13,8 +12,7 @@ exports[`CSharpGenerator class renderer should be able to overwrite accessor pre
 `;
 
 exports[`CSharpGenerator class renderer should be able to overwrite property preset hook 1`] = `
-"public class CustomClass
-{
+"public class CustomClass {
   my own property
   my own property
 
@@ -33,8 +31,7 @@ exports[`CSharpGenerator class renderer should be able to overwrite property pre
 `;
 
 exports[`CSharpGenerator should not render reserved keyword 1`] = `
-"public class Address
-{
+"public class Address {
   private string reservedReservedEnum;
   private string reservedEnum;
 
@@ -53,8 +50,7 @@ exports[`CSharpGenerator should not render reserved keyword 1`] = `
 `;
 
 exports[`CSharpGenerator should not render reserved keyword 2`] = `
-"public class Address
-{
+"public class Address {
   private string reservedReservedEnum;
   private string reservedEnum;
 
@@ -73,8 +69,7 @@ exports[`CSharpGenerator should not render reserved keyword 2`] = `
 `;
 
 exports[`CSharpGenerator should render \`class\` type 1`] = `
-"public class Address
-{
+"public class Address {
   private string streetName;
   private string city;
   private string state;
@@ -149,8 +144,7 @@ exports[`CSharpGenerator should render \`class\` type 1`] = `
 `;
 
 exports[`CSharpGenerator should render \`class\` type 2`] = `
-"public class Address
-{
+"public class Address {
   private string streetName;
   private string city;
   private string state;
@@ -225,17 +219,10 @@ exports[`CSharpGenerator should render \`class\` type 2`] = `
 `;
 
 exports[`CSharpGenerator should render \`enum\` type with enums of mixed types 1`] = `
-"public enum Things
-{
-  Texas,
-  String_1,
-  Number_1,
-  False,
-  TestTest
+"public enum Things {
+  Texas, String_1, Number_1, False, TestTest
 }
-
-public static class ThingsExtensions
-{
+public static class ThingsExtensions {
   public static dynamic GetValue(this Things enumValue)
   {
     switch (enumValue)
@@ -262,21 +249,15 @@ public static class ThingsExtensions
     return null;
   }
 }
+
 "
 `;
 
 exports[`CSharpGenerator should render \`enum\` type with enums of mixed types 2`] = `
-"public enum Things
-{
-  Texas,
-  String_1,
-  Number_1,
-  False,
-  TestTest
+"public enum Things {
+  Texas, String_1, Number_1, False, TestTest
 }
-
-public static class ThingsExtensions
-{
+public static class ThingsExtensions {
   public static dynamic GetValue(this Things enumValue)
   {
     switch (enumValue)
@@ -303,19 +284,15 @@ public static class ThingsExtensions
     return null;
   }
 }
+
 "
 `;
 
 exports[`CSharpGenerator should render \`enum\` type with enums sharing same type 1`] = `
-"public enum States
-{
-  Texas,
-  Alabama,
-  California
+"public enum States {
+  Texas, Alabama, California
 }
-
-public static class StatesExtensions
-{
+public static class StatesExtensions {
   public static dynamic GetValue(this States enumValue)
   {
     switch (enumValue)
@@ -338,19 +315,15 @@ public static class StatesExtensions
     return null;
   }
 }
+
 "
 `;
 
 exports[`CSharpGenerator should render \`enum\` type with enums sharing same type 2`] = `
-"public enum States
-{
-  Texas,
-  Alabama,
-  California
+"public enum States {
+  Texas, Alabama, California
 }
-
-public static class StatesExtensions
-{
+public static class StatesExtensions {
   public static dynamic GetValue(this States enumValue)
   {
     switch (enumValue)
@@ -373,21 +346,15 @@ public static class StatesExtensions
     return null;
   }
 }
+
 "
 `;
 
 exports[`CSharpGenerator should render enums with translated special characters 1`] = `
-"public enum States
-{
-  TestPlus,
-  Test,
-  TestMinus,
-  TestQuestionExclamation,
-  AsteriskTest
+"public enum States {
+  TestPlus, Test, TestMinus, TestQuestionExclamation, AsteriskTest
 }
-
-public static class StatesExtensions
-{
+public static class StatesExtensions {
   public static dynamic GetValue(this States enumValue)
   {
     switch (enumValue)
@@ -414,21 +381,15 @@ public static class StatesExtensions
     return null;
   }
 }
+
 "
 `;
 
 exports[`CSharpGenerator should render enums with translated special characters 2`] = `
-"public enum States
-{
-  TestPlus,
-  Test,
-  TestMinus,
-  TestQuestionExclamation,
-  AsteriskTest
+"public enum States {
+  TestPlus, Test, TestMinus, TestQuestionExclamation, AsteriskTest
 }
-
-public static class StatesExtensions
-{
+public static class StatesExtensions {
   public static dynamic GetValue(this States enumValue)
   {
     switch (enumValue)
@@ -455,6 +416,7 @@ public static class StatesExtensions
     return null;
   }
 }
+
 "
 `;
 
@@ -462,80 +424,78 @@ exports[`CSharpGenerator should render models and their dependencies 1`] = `
 "namespace Test.Namespace
 {
   using System.Collections.Generic;
+  public class Address {
+  private string streetName;
+  private string city;
+  private string state;
+  private double houseNumber;
+  private bool? marriage;
+  private dynamic members;
+  private dynamic[] arrayType;
+  private OtherModel otherModel;
+  private Dictionary<string, dynamic> additionalProperties;
+  private Dictionary<string, string> sTestPatternProperties;
 
-  public class Address
+  public string StreetName 
   {
-    private string streetName;
-    private string city;
-    private string state;
-    private double houseNumber;
-    private bool? marriage;
-    private dynamic members;
-    private dynamic[] arrayType;
-    private OtherModel otherModel;
-    private Dictionary<string, dynamic> additionalProperties;
-    private Dictionary<string, string> sTestPatternProperties;
-
-    public string StreetName 
-    {
-      get { return streetName; }
-      set { streetName = value; }
-    }
-
-    public string City 
-    {
-      get { return city; }
-      set { city = value; }
-    }
-
-    public string State 
-    {
-      get { return state; }
-      set { state = value; }
-    }
-
-    public double HouseNumber 
-    {
-      get { return houseNumber; }
-      set { houseNumber = value; }
-    }
-
-    public bool? Marriage 
-    {
-      get { return marriage; }
-      set { marriage = value; }
-    }
-
-    public dynamic Members 
-    {
-      get { return members; }
-      set { members = value; }
-    }
-
-    public dynamic[] ArrayType 
-    {
-      get { return arrayType; }
-      set { arrayType = value; }
-    }
-
-    public OtherModel OtherModel 
-    {
-      get { return otherModel; }
-      set { otherModel = value; }
-    }
-
-    public Dictionary<string, dynamic> AdditionalProperties 
-    {
-      get { return additionalProperties; }
-      set { additionalProperties = value; }
-    }
-
-    public Dictionary<string, string> STestPatternProperties 
-    {
-      get { return sTestPatternProperties; }
-      set { sTestPatternProperties = value; }
-    }
+    get { return streetName; }
+    set { streetName = value; }
   }
+
+  public string City 
+  {
+    get { return city; }
+    set { city = value; }
+  }
+
+  public string State 
+  {
+    get { return state; }
+    set { state = value; }
+  }
+
+  public double HouseNumber 
+  {
+    get { return houseNumber; }
+    set { houseNumber = value; }
+  }
+
+  public bool? Marriage 
+  {
+    get { return marriage; }
+    set { marriage = value; }
+  }
+
+  public dynamic Members 
+  {
+    get { return members; }
+    set { members = value; }
+  }
+
+  public dynamic[] ArrayType 
+  {
+    get { return arrayType; }
+    set { arrayType = value; }
+  }
+
+  public OtherModel OtherModel 
+  {
+    get { return otherModel; }
+    set { otherModel = value; }
+  }
+
+  public Dictionary<string, dynamic> AdditionalProperties 
+  {
+    get { return additionalProperties; }
+    set { additionalProperties = value; }
+  }
+
+  public Dictionary<string, string> STestPatternProperties 
+  {
+    get { return sTestPatternProperties; }
+    set { sTestPatternProperties = value; }
+  }
+}
 }"
 `;
 
@@ -543,37 +503,30 @@ exports[`CSharpGenerator should render models and their dependencies 2`] = `
 "namespace Test.Namespace
 {
   using System.Collections.Generic;
+  public class OtherModel {
+  private string streetName;
+  private Dictionary<string, dynamic> additionalProperties;
 
-  public class OtherModel
+  public string StreetName 
   {
-    private string streetName;
-    private Dictionary<string, dynamic> additionalProperties;
-
-    public string StreetName 
-    {
-      get { return streetName; }
-      set { streetName = value; }
-    }
-
-    public Dictionary<string, dynamic> AdditionalProperties 
-    {
-      get { return additionalProperties; }
-      set { additionalProperties = value; }
-    }
+    get { return streetName; }
+    set { streetName = value; }
   }
+
+  public Dictionary<string, dynamic> AdditionalProperties 
+  {
+    get { return additionalProperties; }
+    set { additionalProperties = value; }
+  }
+}
 }"
 `;
 
 exports[`CSharpGenerator should work custom preset for \`enum\` type 1`] = `
-"public enum CustomEnum
-{
-  Texas,
-  Alabama,
-  California
+"public enum CustomEnum {
+  Texas, Alabama, California
 }
-
-public static class CustomEnumExtensions
-{
+public static class CustomEnumExtensions {
   public static dynamic GetValue(this CustomEnum enumValue)
   {
     switch (enumValue)
@@ -596,19 +549,15 @@ public static class CustomEnumExtensions
     return null;
   }
 }
+
 "
 `;
 
 exports[`CSharpGenerator should work custom preset for \`enum\` type 2`] = `
-"public enum CustomEnum
-{
-  Texas,
-  Alabama,
-  California
+"public enum CustomEnum {
+  Texas, Alabama, California
 }
-
-public static class CustomEnumExtensions
-{
+public static class CustomEnumExtensions {
   public static dynamic GetValue(this CustomEnum enumValue)
   {
     switch (enumValue)
@@ -631,5 +580,6 @@ public static class CustomEnumExtensions
     return null;
   }
 }
+
 "
 `;
